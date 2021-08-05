@@ -1,0 +1,22 @@
+<div class="single">
+  <h1>{{books.nameBook}}</h1>
+  <br />
+  <img src="{{books.pathToImage}}" />
+  <br />
+  <h3>{{books.years}}</h3>
+  {{books.text}}
+
+  <div class="reviews">
+    {{#if reviews}}
+      {{#each reviews}}
+        <div class="name">{{clientId}}</div>
+        <div>{{text}}</div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  <div class="btn">
+    <a href="/clients/{{_id}}/rent"><button>Арендовать книгу</button></a>
+    <a href="/clients/{{_id}}/return"><button>Вернуть книгу</button></a>
+  </div>
+</div>

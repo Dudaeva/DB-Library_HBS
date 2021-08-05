@@ -1,0 +1,29 @@
+<!-- страница для админа-->
+<div class="clients">
+  <h1>Cписок пользователей</h1>
+  <hr />
+
+  {{#if data}}
+    {{#each data}}
+      <h2>Имя: {{clientName}}</h2>
+      
+      <h4>Арендованные книги: </h4>
+      <ol>
+        {{#rentedBooks}}
+          <li>
+            {{nameBook}}
+            <br />
+            <a href="/admin/clients/{{_id}}/takeAwayBook"><button>Отобрать книгу
+                и заблокировать клиента</button></a>
+          </li>
+        {{/rentedBooks}}
+      </ol>
+
+      <b>Статус блокировки:</b>
+      {{isBlocked}}
+
+      <hr />
+
+    {{/each}}
+  {{/if}}
+</div>

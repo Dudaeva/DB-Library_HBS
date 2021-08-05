@@ -1,0 +1,103 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online-library</title>
+
+    <style>
+      body{
+        background-image: url(https://img3.goodfon.ru/wallpaper/nbig/6/3c/kniga-cvety-fon.jpg);
+        background-size: 100%;
+        width: 1190px;
+      
+      }
+      .genres{
+        float: left;
+        margin-right: 20px;
+        line-height: 40px;
+        font-size: 20px;
+        width: 18%;
+        height: 60%;
+        background: #001d3d;
+        box-shadow: 4px 0 2px rgba(10, 1, 1, 0.932);
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+      }
+      .home{
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        font-family: cursive;
+        background: #001d3d;
+        box-shadow: 4px 0 2px rgba(0, 0, 0, 0.3);
+      }
+      img{
+        width: 200px;
+        height: 300px;
+      }
+      .allBooks{
+        display: flex;
+        text-align: center;
+        color: #457b9d;
+        margin-top: 20px;
+        font-size: 25px;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      li{
+        list-style-type:none;
+      }
+      .clients {
+        margin-left: auto;
+        margin-right: auto;
+        width: 18em
+      }
+      footer{
+        width: 100%;
+        margin-top: 60px;
+        height: 90px;
+        background: #001d3d;
+        box-shadow: 4px 0 2px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        font-family: cursive;
+      }
+      .single img{
+        padding-left: 250px;
+        width: 400px;
+        height: 80%;
+      }
+      .single{
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <div class="home">
+        <h1><a href="/clients/books">Главная</a></h1>
+        <h1> Онлайн-Библиотека</h1>
+        <h1><a href="/admin/clients">Админ</a></h1>
+    </div>
+
+      <ul class="genres"><h2>Жанры</h2>
+      <hr>
+        {{#each genres}}
+          <li>
+           <b><a href="/books/genres/{{_id}}">{{genreName}}</a></b>
+          </li>
+        {{/each}}
+      </ul>
+
+    {{{body}}}
+
+   <footer>
+      <a href="/clients/books?page=1&limit=3"></a>
+      <h1><a href="/clients/books?page=2&limit=3">next>>></a></h1>
+    </footer>
+
+  </body>
+</html>

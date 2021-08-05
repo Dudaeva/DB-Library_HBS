@@ -1,0 +1,10 @@
+<!--страница для отображения книг по жанрам -->
+<div class="book">
+  {{#if books}}
+    {{#each books}}
+      <img src="{{pathToImage}}" />
+      <br />
+      <a href="/clients/books/{{_id}}">{{nameBook}}</a>
+    {{/each}}
+  {{/if}}
+</div>

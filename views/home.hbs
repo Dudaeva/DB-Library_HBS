@@ -1,0 +1,11 @@
+<!--главная страница-->
+<div class="allBooks">
+  {{#if books}}
+    {{#each books}}
+      <ul>
+        <img src="{{pathToImage}}" class="image" />
+        <a href="/clients/books/{{_id}}" class="books">{{nameBook}}</a>
+      </ul>
+    {{/each}}
+  {{/if}}
+</div>
