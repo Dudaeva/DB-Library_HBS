@@ -1,10 +1,23 @@
-<div class="single">
-  <h1>{{books.nameBook}}</h1>
-  <br />
-  <img src="{{books.pathToImage}}" />
-  <br />
-  <h3>{{books.years}}</h3>
-  {{books.text}}
+<div class="blockBooks">
+
+  <div class="book0">
+    <div class="imgBook0">
+      <img src="{{books.pathToImage}}" />
+    </div>
+
+    <div class="info">
+      <h1>{{books.nameBook}}</h1>
+      <h3>{{books.years}}</h3>
+      {{books.text}}
+    </div>
+  </div>
+
+  {{#if books.rentedId}}
+    <button><h2>Книга арендована</h2></button>
+  {{else}}
+    <a href="/clients/610a829b9bd0ffe408c62352/books/{{books._id}}/rent"><button
+      ><h2>Арендовать книгу</h2></button></a>
+  {{/if}}
 
   <div class="reviews">
     {{#if reviews}}
@@ -15,8 +28,4 @@
     {{/if}}
   </div>
 
-  <div class="btn">
-    <a href="/clients/{{_id}}/rent"><button>Арендовать книгу</button></a>
-    <a href="/clients/{{_id}}/return"><button>Вернуть книгу</button></a>
-  </div>
 </div>

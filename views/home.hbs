@@ -1,11 +1,14 @@
 <!--главная страница-->
-<div class="allBooks">
+<div class="book">
   {{#if books}}
     {{#each books}}
-      <ul>
-        <img src="{{pathToImage}}" class="image" />
-        <a href="/clients/books/{{_id}}" class="books">{{nameBook}}</a>
-      </ul>
+     
+       <div class="imgBook">
+        <img src="{{pathToImage}}"/>
+        <br>
+        <a href="/clients/books/{{_id}}"><h1>{{nameBook}}</h1></a>
+        </div>
+       
     {{/each}}
   {{/if}}
 </div>

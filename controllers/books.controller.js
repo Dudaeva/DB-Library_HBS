@@ -41,9 +41,7 @@ module.exports.booksController = {
   addImages: async (req, res) => {
     try {
       const { image } = req.files;
-      const newFile = `/images/${Math.random() * 10000}${path.extname(
-        image.name
-      )}`;
+      const newFile = `/images/${Math.random() * 10000}${path.extname(image.name)}`;
 
       image.mv(`./public${newFile}`, async (err) => {
         if (err) {
@@ -61,7 +59,7 @@ module.exports.booksController = {
   },
   getBooks: async (req, res) => {
     try {
-      const { page = 1, limit = 3 } = req.body;
+      const { page = 1, limit = 10 } = req.body;
       const books = await Book.find({})
         .lean()
         .limit(limit * 1)
@@ -81,8 +79,10 @@ module.exports.booksController = {
     try {
       const books = await Book.findById(req.params.id).lean();
       const genres = await Genre.find().lean();
+      const clientId = req.params.clientId
       res.render("user", {
         books,
+        clientId,
         genres,
       });
     } catch {
@@ -95,7 +95,7 @@ module.exports.booksController = {
     try {
       const books = await Book.find({ genre: req.params.id }).lean();
       const genres = await Genre.find().lean();
-      res.render("menu", {
+      res.render("home", {
         books,
         genres,
       });

@@ -1,29 +1,48 @@
 <!-- страница для админа-->
 <div class="clients">
   <h1>Cписок пользователей</h1>
-  <hr />
 
-  {{#if data}}
-    {{#each data}}
-      <h2>Имя: {{clientName}}</h2>
-      
-      <h4>Арендованные книги: </h4>
-      <ol>
-        {{#rentedBooks}}
-          <li>
-            {{nameBook}}
-            <br />
-            <a href="/admin/clients/{{_id}}/takeAwayBook"><button>Отобрать книгу
-                и заблокировать клиента</button></a>
-          </li>
-        {{/rentedBooks}}
-      </ol>
+  <table>
+    <tr>
+      <td><b>Имя:</b></td>
+      <td><b>Статус блокировки:</b></td>
+      <td><b>Арендованные книги:</b></td>
+    </tr>
 
-      <b>Статус блокировки:</b>
-      {{isBlocked}}
+    {{#if data}}
+      {{#each data}}
+        <tr>
+          <td>
+            {{clientName}}
+          </td>
 
-      <hr />
+           <td>
+            <ol>
+              {{#rentedBooks}}
+                <li>
+                  {{nameBook}}
+                </li>
+              {{/rentedBooks}}
+            </ol>
+          </td>
 
-    {{/each}}
-  {{/if}}
+          <td>
+            {{isBlocked}}
+          </td>
+
+          <td>
+            {{#if isBlocked}}
+            <a href="/admin/clients/{{_id}}/unban"><button><b>Разблокировать
+                клиента</b></button></a>
+                {{else}}
+                 <a href="/admin/clients/{{_id}}/takeAwayBook">
+              <button><b>Отобрать книгу заблокировать клиента</b></button></a>
+              {{/if}}
+          </td>
+         
+        </tr>
+
+      {{/each}}
+    {{/if}}
+  </table>
 </div>

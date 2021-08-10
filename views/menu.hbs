@@ -1,10 +1,14 @@
-<!--страница для отображения книг по жанрам -->
-<div class="book">
-  {{#if books}}
-    {{#each books}}
-      <img src="{{pathToImage}}" />
-      <br />
-      <a href="/clients/books/{{_id}}">{{nameBook}}</a>
-    {{/each}}
-  {{/if}}
-</div>
+<h1>Войдите, чтобы продолжить: </h1>
+<ul>
+  {{#each clients}}
+    <li>
+      <a href="/clients/{{_id}}/books">
+        Пользователь:
+        {{clientName}}</a>
+      <p></p>
+      Статус блокировки:
+      {{isBlocked}}
+    </li>
+  {{/each}}
+  <li class="users-list"><a href="/admin/clients/">Администратор</a></li>
+</ul>

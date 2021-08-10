@@ -22,7 +22,7 @@ const start = async () => {
       "mongodb+srv://into:intocode@cluster0.hv9gm.mongodb.net/DB-library",
       {
         useNewUrlParser: true,
-        useFindAndModify: true,
+        useFindAndModify: false,
         useCreateIndex: true,
         useUnifiedTopology: true,
       }
